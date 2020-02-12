@@ -22,9 +22,9 @@ export class CustomerFormComponent implements OnInit {
 
   createCustomer(value: any) {
     const customer: fromCustomer.Customer = {
-      id: new Date().getUTCMilliseconds().toString(),
+      id: null,
       nombre: value.nombre,
-      apellido: value.nombre,
+      apellido: value.apellido,
       edad: parseInt(value.edad, 10),
       dob: value.dob
     }

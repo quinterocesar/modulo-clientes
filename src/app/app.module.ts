@@ -13,6 +13,11 @@ import { CustomersModule } from './customers/customers.module';
 import { reducers } from './reducers';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { HomeComponent } from './components/home/home/home.component';
+import { EffectsModule } from '@ngrx/effects';
+import { AppEffects } from './app.effects';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -29,6 +34,9 @@ import { HomeComponent } from './components/home/home/home.component';
     StoreDevtoolsModule.instrument({
       maxAge: 25
     }),
+    EffectsModule.forRoot([]),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

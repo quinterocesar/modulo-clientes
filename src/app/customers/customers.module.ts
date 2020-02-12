@@ -13,6 +13,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { StoreModule } from '@ngrx/store';
 
 import { customerReducer } from './customer.reducer';
+import { CustomerEffects } from './customer.effects'
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [CustomersComponent, CustomerListComponent, CustomerFormComponent, CustomerDashboardComponent],
@@ -21,6 +23,7 @@ import { customerReducer } from './customer.reducer';
     FormsModule,
     CustomersRoutingModule,
     FontAwesomeModule,
+    EffectsModule.forFeature([CustomerEffects]),
     StoreModule.forFeature('customer', customerReducer)
   ],
   exports: [CustomersComponent, CustomerListComponent, CustomerFormComponent, CustomerDashboardComponent],

@@ -17,22 +17,7 @@ export const customerAdapter = createEntityAdapter<Customer>();
 export interface State extends EntityState<Customer> { }
 
 
-// Default data / initial state
-
-const defaultCustomer = {
-    ids: ['123'],
-    entities: {
-        '123': {
-            id: '123',
-            nombre: '',
-            apellido: '',
-            edad: 0,
-            dob: ''
-        }
-    }
-}
-
-export const initialState: State = customerAdapter.getInitialState(defaultCustomer);
+export const initialState: State = customerAdapter.getInitialState();
 
 // Reducer
 
@@ -41,22 +26,22 @@ export function customerReducer(
     action: actions.CustomerActions) {
 
     switch (action.type) {
-        
-        case actions.CREATE:
-            return customerAdapter.addOne(action.customer, state);
 
-        case actions.UPDATE:
-            return customerAdapter.updateOne({
-                id: action.id,
-                changes: action.changes,
-            }, state);
+        case actions.ADDED:
+            return customerAdapter.addOne(action.payload, state)
+    
+        case actions.MODIFIED:
+            return customerAdapter.updateOne({ 
+                id: action.payload.id, 
+                changes: action.payload 
+            }, state)
+    
+        case actions.REMOVED:
+            return customerAdapter.removeOne(action.payload.id, state)
         
-        case actions.DELETE:
-            return customerAdapter.removeOne(action.id, state)
-
         default:
             return state;
-        }
+    }
 
 }
 

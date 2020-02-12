@@ -18,7 +18,8 @@ export class CustomerListComponent implements OnInit {
   constructor(private store: Store<fromCustomer.State>) { }
 
   ngOnInit() {
-    this.customers = this.store.select(fromCustomer.selectAll)
+    this.customers = this.store.select(fromCustomer.selectAll);
+    this.store.dispatch(  new actions.Query() );
   }
 
   deleteCustomer(id) {
