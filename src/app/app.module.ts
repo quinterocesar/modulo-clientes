@@ -11,10 +11,14 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { CustomersModule } from './customers/customers.module';
 import { reducers } from './reducers';
+import { NavbarComponent } from './components/shared/navbar/navbar.component';
+import { HomeComponent } from './components/home/home/home.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
