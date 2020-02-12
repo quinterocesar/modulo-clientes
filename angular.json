@@ -118,6 +118,10 @@
               "devServerTarget": "modulo-cliente:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }

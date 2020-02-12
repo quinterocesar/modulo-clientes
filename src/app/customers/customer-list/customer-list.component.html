@@ -13,12 +13,12 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Nombre</td>
-            <td>Apellido</td>
-            <td>Fecha Nacimiento</td>
-            <td>Edad</td>
-            <td><fa-icon [icon]="faTrash"></fa-icon></td>
+          <tr  *ngFor="let customer of customers | async">
+            <td>{{customer.nombre}}</td>
+            <td>{{customer.apellido}}</td>
+            <td>{{customer.dob | date:'dd/MM/yyyy'}}</td>
+            <td>{{customer.edad}}</td>
+            <td style="color: red;"><fa-icon [icon]="faTrash" (click)="deleteCustomer(customer.id)"></fa-icon></td>
           </tr>
         </tbody>
       </table>

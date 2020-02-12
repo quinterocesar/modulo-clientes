@@ -2,25 +2,25 @@
   <div class="card">
     <h5 class="card-header">Agregar Cliente</h5>
     <div class="card-body">
-      <form>
+      <form #customerForm="ngForm" (ngSubmit)="createCustomer(customerForm.value)" novalidate>
         <div class="row">
             <div class="col">
               <label for="nombre">Nombre</label>
-              <input type="text" class="form-control" id="nombre" name="nombre" aria-describedby="nombreHelp">
+              <input type="text" class="form-control" id="nombre" name="nombre" ngModel aria-describedby="nombreHelp" required>
             </div>
             <div class="col">
               <label for="apellido">Apellido</label>
-              <input type="text" class="form-control" id="apellido" name="apellido" aria-describedby="apellidoHelp">
+              <input type="text" class="form-control" id="apellido" name="apellido" ngModel aria-describedby="apellidoHelp" required>
             </div>
             <div class="col">
-              <label for="fecha_nacimiento">Fecha de Nacimiento</label>
-              <input type="datetime" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" aria-describedby="fecha_nacimientoHelp">
+              <label for="dob">Fecha de Nacimiento</label>
+              <input type="date" class="form-control" id="dob" name="dob" ngModel aria-describedby="dobHelp" placeholder="DD/MM/AAAA" required>
             </div>
             <div class="col">
               <label for="edad">Edad</label>
-              <input type="text" class="form-control" id="edad" name="edad" aria-describedby="edadHelp" disabled>
+              <input type="text" class="form-control" id="edad" name="edad" ngModel aria-describedby="edadHelp">
             </div>
-            <button type="submit" class="btn btn-primary">Agregar</button>
+            <button [disabled]="!customerForm.form.valid" type="submit" class="btn btn-primary">Agregar</button>
         </div>
       </form>
     </div>

@@ -6,6 +6,12 @@ import { AppComponent } from './app.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
+import { CustomersModule } from './customers/customers.module';
+import { reducers } from './reducers';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -13,7 +19,12 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    CustomersModule,
+    StoreModule.forRoot(reducers),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
