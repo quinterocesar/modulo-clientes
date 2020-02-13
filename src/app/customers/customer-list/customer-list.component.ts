@@ -19,7 +19,7 @@ export class CustomerListComponent implements OnInit {
 
   ngOnInit() {
     this.customers = this.store.select(fromCustomer.selectAll);
-    this.store.dispatch(  new actions.Query() );
+    this.store.dispatch( new actions.Query() );
   }
 
   deleteCustomer(id) {

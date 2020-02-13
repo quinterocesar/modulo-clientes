@@ -1,20 +1,20 @@
 import { Action } from '@ngrx/store';
 import { Customer }  from './customer.reducer';
 
-export const QUERY    = '[Customers] query customers';
+export const QUERY = '[Customers] query customers';
 
-export const ADDED    = '[Customers] added';
+export const ADDED = '[Customers] added';
 export const MODIFIED = '[Customers] modified';
-export const REMOVED  = '[Customers] removed';
+export const REMOVED = '[Customers] removed';
 
-export const CREATE   = '[Customers] created';
+export const CREATE = '[Customers] created';
 export const CREATE_SUCCESS  = '[Customers] created success';
 
-export const UPDATE   = '[Customers] update';
-export const SUCCESS  = '[Customers] update success';
+export const UPDATE = '[Customers] update';
+export const SUCCESS = '[Customers] update success';
 
-export const DELETE   = '[Customers] deleted';
-export const DELETE_SUCCESS  = '[Customers] deleted success';
+export const DELETE = '[Customers] deleted';
+export const DELETE_SUCCESS = '[Customers] deleted success';
 
 // Initial query
 export class Query implements Action {
@@ -41,7 +41,7 @@ export class Removed implements Action {
 // Run a Firestore Create
 export class Create implements Action {
     readonly type = CREATE;
-    constructor(public payload: Customer) { }
+    constructor(public payload: Object) { }
 }
 
 export class CreateSuccess implements Action {

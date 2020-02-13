@@ -18,7 +18,7 @@ export class CustomerEffects {
     query$: Observable < Action > = this.actions$.pipe(
       ofType(customerActions.QUERY),
       switchMap(action => {
-        return this.afs.collection < Customer > ('customers').stateChanges()
+        return this.afs.collection<Customer>('customers').stateChanges()
       }),
       mergeMap(actions => actions),
       map(action => {
@@ -40,7 +40,7 @@ export class CustomerEffects {
           const ref = this.afs.collection('customers')
             return of( ref.add(data) )
         }),
-        map(() => new customerActions.CreateSuccess())
+        map(() => new customerActions.Success())
     )
 
     @Effect() 
@@ -59,7 +59,6 @@ export class CustomerEffects {
         ofType(customerActions.DELETE),
         map((action: customerActions.Delete) => action),
         switchMap(data => {
-          console.log(data)
           const ref = this.afs.doc(`customers/${data.payload}`)
           return of( ref.delete() )
         }),

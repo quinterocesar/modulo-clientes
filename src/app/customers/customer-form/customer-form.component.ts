@@ -21,8 +21,7 @@ export class CustomerFormComponent implements OnInit {
   }
 
   createCustomer(value: any) {
-    const customer: fromCustomer.Customer = {
-      id: null,
+    const customer = {
       nombre: value.nombre,
       apellido: value.apellido,
       edad: parseInt(value.edad, 10),
